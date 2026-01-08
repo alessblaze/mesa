@@ -915,7 +915,7 @@ if with_platform_android
     if get_option('platform-sdk-version') >= 30
       dep_android_mapper4 = dependency('android.hardware.graphics.mapper', version : '>= 4.0', required : false)
     endif
-    if get_option('platform-sdk-version') >= 35
+    if get_option('platform-sdk-version') >= 34
       dep_android_ui = dependency('ui', required : false)
     endif
   endif
