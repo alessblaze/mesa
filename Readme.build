@@ -1,0 +1,22 @@
+its pretty simple to build it in tree. 
+
+make a new folder under vendor directory named mesa3d.
+clone this repo inside.
+
+# add these in board config
+include vendor/mesa3d/mesa/android/Android.mk
+BOARD_MESA3D_USES_MESON_BUILD := true
+BOARD_MESA3D_VULKAN_DRIVERS := freedreno
+
+
+# add this in device.mk
+PRODUCT_PACKAGES += vulkan.freedreno
+
+PRODUCT_PROPERTY_OVERRIDES += \
+       ro.hardware.vulkan=freedreno
+       
+# do use ubuntu 24.04 or similar with newer meson and deps these are deps below.
+# these are for ubuntu 24.04. 
+meson-1.5 patchelf unzip curl python3-pip flex bison zip python3-mako glslang-tools vulkan-tools python-is-python3 python3-yaml       
+
+then it would build the package easily with soong.
