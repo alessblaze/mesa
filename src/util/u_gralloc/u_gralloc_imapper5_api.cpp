@@ -155,6 +155,7 @@ mapper5_get_buffer_color_info(struct u_gralloc *gralloc,
          out->horizontal_siting = __DRI_YUV_CHROMA_SITING_0;
          out->vertical_siting = __DRI_YUV_CHROMA_SITING_0_5;
          break;
+#if ANDROID_API_LEVEL >= 35         
       case ChromaSiting::COSITED_VERTICAL:
          out->horizontal_siting = __DRI_YUV_CHROMA_SITING_0_5;
          out->vertical_siting = __DRI_YUV_CHROMA_SITING_0;
@@ -163,6 +164,7 @@ mapper5_get_buffer_color_info(struct u_gralloc *gralloc,
          out->horizontal_siting = __DRI_YUV_CHROMA_SITING_0;
          out->vertical_siting = __DRI_YUV_CHROMA_SITING_0;
          break;
+#endif 
       case ChromaSiting::SITED_INTERSTITIAL:
       default:
          out->horizontal_siting = __DRI_YUV_CHROMA_SITING_0_5;
